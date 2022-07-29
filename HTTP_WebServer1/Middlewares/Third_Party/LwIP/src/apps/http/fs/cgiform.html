@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>UART WebServer</h2>
+
+<form action="/cgiform.html">
+  <label for="baud">Baud Rate:</label><br>
+  <select name="baud" id="baud">
+    <option value="115200">115200</option>
+    <option value="57600">57600</option>
+    <option value="38400">38400</option>
+    <option value="19200">19200</option>
+    <option value="9600">9600</option>
+  </select>
+
+  <label for="parity">Parity:</label><br>
+  <select name="parity" id="parity">
+    <option value="None">None</option>
+    <option value="Odd">Odd</option>
+    <option value="Even">Even</option>
+    <option value="Mark">Mark</option>
+    <option value="Space">Space</option>
+  </select>
+
+  <label for="dbits">Data Bits:</label><br>
+  <select name="dbits" id="dbits">
+    <option value="8bits">8bits</option>
+    <option value="7bits">7bits</option>
+    <option value="6bits">6bits</option>
+    <option value="5bits">5bits</option>
+  </select>
+
+  <label for="sbits">Stop Bits:</label><br>
+  <select name="sbits" id="sbits">
+    <option value="1bit">1bit</option>
+    <option value="2bits">2bits</option>
+  </select>
+
+  <label for="hfc">Hardware Flow Control:</label><br>
+  <select name="hfc" id="hfc">
+    <option value="None">None</option>
+    <option value="DTR/DSR">DTR/DSR</option>
+    <option value="RTS/CTS">RTS/CTS</option>
+    <option value="Rs485-rts">Rs485-rts</option>
+  </select>
+
+    <label for="data">Data:</label><br>
+    <input type="data" id="data" name="data"><br><br>
+
+    <button onclick="httpGet();">Click me</button>
+</form> 
+
+
+
+<script>
+
+function httpGet()
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET",window.location, false ); // false for synchronous request
+
+    var url = window.location.search;
+
+    xmlHttp.send( url);
+    return xmlHttp.responseText;
+}
+
+</script>
+
+
+
+</body>
+</html>
